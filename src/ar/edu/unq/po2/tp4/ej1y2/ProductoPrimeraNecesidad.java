@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp4;
+package ar.edu.unq.po2.tp4.ej1y2;
 
 public class ProductoPrimeraNecesidad extends Producto{
 	
