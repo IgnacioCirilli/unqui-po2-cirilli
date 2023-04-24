@@ -1,7 +1,8 @@
 package ar.edu.unq.po2.tp6Solid.ej2;
 
-public class SolicitudDeCredito {
 
+public abstract class SolicitudDeCredito {
+	
 	private Cliente clienteSolicitante;
 	private float   montoSolicitado;
 	private int     plazoEnMeses;
@@ -13,6 +14,7 @@ public class SolicitudDeCredito {
 		this.setPlazoEnMeses(plazoEnMeses);
 		this.setEsAceptada(false);
 	}
+	
 	
 	public Cliente getClienteSolicitante() {
 		return clienteSolicitante;
@@ -50,4 +52,11 @@ public class SolicitudDeCredito {
 		return this.getMontoSolicitado() / this.getPlazoEnMeses();
 	}
 
+
+	public void verificarSolicitudDeCredito() {
+		this.setEsAceptada(this.resultadoDeVerificacion());	
+	}
+
+	public abstract boolean resultadoDeVerificacion();
+	
 }

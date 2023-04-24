@@ -1,7 +1,8 @@
 package ar.edu.unq.po2.tp6Solid.ej2;
 
-public class Propiedad {
 
+public class Propiedad {
+	
 	private String descripcion;
 	private float  valorFiscal;
 	private String direccion;
@@ -32,6 +33,5 @@ public class Propiedad {
 	}
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
-	}
-	
+	}	
 }

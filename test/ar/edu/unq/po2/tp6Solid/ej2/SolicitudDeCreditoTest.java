@@ -9,10 +9,11 @@ class SolicitudDeCreditoTest {
 	
 	private SolicitudDeCredito solicitudDeCredito;
 	private Cliente cliente1;
+	private Banco   banco1;
 
 	@BeforeEach
 	void setUp() throws Exception {
-		cliente1 = new Cliente("Guido", "Ventoso", "Av. SiempreWollok 2142", 62, 5000f);
+		cliente1 = new Cliente(banco1, "Guido", "Ventoso", "Av. SiempreWollok 2142", 62, 5000f);
 		solicitudDeCredito = new SolicitudDeCredito(cliente1, 1000f, 10); 
 	}
 

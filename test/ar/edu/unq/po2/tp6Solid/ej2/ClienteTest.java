@@ -8,10 +8,11 @@ import org.junit.jupiter.api.Test;
 class ClienteTest {
 	
 	private Cliente cliente;
+	private Banco   banco1;
 
 	@BeforeEach
 	void setUp() throws Exception {
-		this.cliente = new Cliente("Guido", "Ventoso", "Av. SiempreViva 2142", 62, 5000f);
+		this.cliente = new Cliente(banco1, "Guido", "Ventoso", "Av. SiempreViva 2142", 62, 5000f);
 	}
 
 	@Test
@@ -25,7 +26,7 @@ class ClienteTest {
 	
 	@Test
 	void verificacionDeSueltoNetoAnual() {
-		assertEquals(this.cliente.sueltoNetoAnual(), 60000f);
+		assertEquals(this.cliente.sueldoNetoAnual(), 60000f);
 	}
 
 

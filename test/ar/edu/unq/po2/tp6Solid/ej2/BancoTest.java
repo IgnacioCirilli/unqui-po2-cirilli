@@ -12,7 +12,7 @@ class BancoTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		this.banco    = new Banco();
-		this.cliente1 = new Cliente("Guido", "Ventoso", "Av. SiempreViva 2142", 62, 5000f); 
+		this.cliente1 = new Cliente(banco, "Guido", "Ventoso", "Av. SiempreViva 2142", 62, 5000f); 
 	}
 
 	@Test
