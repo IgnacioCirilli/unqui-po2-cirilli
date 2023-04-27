@@ -35,4 +35,8 @@ public class Carta {
 	public boolean tieneMismoPalo(Carta carta) {
 		return this.getPalo() == carta.getPalo();
 	}
+
+	public boolean tieneMismoValorQue(Carta carta) {
+		return this.getValor() == carta.getValor();
+	}
 }

@@ -5,28 +5,17 @@ import java.util.List;
 
 public class PokerStatus {
 
-	public String verificar(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
+	public String verificar(Jugada jugada) {
 		String resultado = "Nada";
 		
-		List<Integer> listaDeValores = Arrays.asList(obtenerValorDeCarta(carta1), 
-													 obtenerValorDeCarta(carta2), 
-													 obtenerValorDeCarta(carta3), 
-												     obtenerValorDeCarta(carta4),
-													 obtenerValorDeCarta(carta5));
-		List<PaloDeCarta> listaDePalos = Arrays.asList(obtenerPaloDeCarta(carta1), 
-													   obtenerPaloDeCarta(carta2), 
-			      									   obtenerPaloDeCarta(carta3), 
-			      									   obtenerPaloDeCarta(carta4),
-			      									   obtenerPaloDeCarta(carta5));
-		
 		// Se deberia hacer con doble-dispatch ¿? 
-		if (esPoker(listaDeValores)) {
+		if (esPoker(jugada)) {
 			resultado = "Poker";
 		} else 
-			if (esColor(listaDePalos)) {
+			if (esColor(jugada)) {
 				resultado = "Color";
 			} else 
-				if (esTrio(listaDeValores)) {
+				if (esTrio(jugada)) {
 					resultado = "Trio";
 		}
 		return resultado;
@@ -40,30 +29,34 @@ public class PokerStatus {
 		return carta.getValor();
 	}
 	
-	public boolean esPoker(List<Integer> listaDeValores) {
-		Integer primerValor = listaDeValores.get(0);
-		Integer segundoValor = listaDeValores.get(1);
+	public boolean esPoker(Jugada jugada) {
 		
-		return aparicionesDeValor(primerValor, listaDeValores) >= 4
-				||
-			   aparicionesDeValor(segundoValor, listaDeValores) >= 4;
+		return jugada.obtenerPrimeras(2).stream().anyMatch(c -> this.hayPoker(c, jugada));
+		
 	}
 	
-	public boolean esColor(List <PaloDeCarta> listaDePalos) {
-		 return listaDePalos.isEmpty() || listaDePalos.stream()
-			      .allMatch(listaDePalos.get(0)::equals);
+	public boolean hayPoker(Carta carta, Jugada jugada) {
+		
+		return jugada.getCartas().stream().filter(c -> c.tieneMismoValorQue(carta)).count() == 4;
+		
 	}
 	
-	public boolean esTrio(List <Integer> listaDeValores) {
-		Integer primerValor = listaDeValores.get(0);
-		Integer segundoValor = listaDeValores.get(1);
-		Integer tercerValor = listaDeValores.get(2);
+	public boolean esColor(Jugada jugada) {
 		
-		return aparicionesDeValor(primerValor, listaDeValores) >= 3
-				||
-			   aparicionesDeValor(segundoValor, listaDeValores) >= 3
-			    ||
-			   aparicionesDeValor(tercerValor, listaDeValores) >= 3;
+		 return jugada.getCartas().stream().allMatch(c -> c.tieneMismoPalo(jugada.getCarta(1)));
+	
+	}
+	
+	public boolean esTrio(Jugada jugada) {
+		
+		return jugada.obtenerPrimeras(3).stream().anyMatch(c -> this.hayTrio(c, jugada));
+		
+	}
+
+	public boolean hayTrio(Carta carta, Jugada jugada) {
+
+		return jugada.getCartas().stream().filter(c -> c.tieneMismoValorQue(carta)).count() == 3;
+		
 	}
 
 	public int aparicionesDeValor(Integer valor, List<Integer> listaDeValores) {
