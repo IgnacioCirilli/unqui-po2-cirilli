@@ -57,11 +57,11 @@ class JugadaTest {
 	void verificacionDeInicializacionDeUnaJugada() {
 		
 		//Mockeando
-		when(carta1.getValor()).thenReturn(4);
-		when(carta2.getValor()).thenReturn(10);
-		when(carta3.getValor()).thenReturn(13);
-		when(carta4.getValor()).thenReturn(5);
-		when(carta5.getValor()).thenReturn(1);
+		when(carta1.getValor()).thenReturn(ValorDeCarta.CUATRO);
+		when(carta2.getValor()).thenReturn(ValorDeCarta.DIEZ);
+		when(carta3.getValor()).thenReturn(ValorDeCarta.K);
+		when(carta4.getValor()).thenReturn(ValorDeCarta.CINCO);
+		when(carta5.getValor()).thenReturn(ValorDeCarta.A);
 		
 		//Assert
 		assertEquals(jugada1.getCarta(1).getValor(), carta1.getValor());

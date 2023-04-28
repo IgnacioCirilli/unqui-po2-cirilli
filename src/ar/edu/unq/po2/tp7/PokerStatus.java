@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.tp7;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class PokerStatus {
@@ -19,14 +18,6 @@ public class PokerStatus {
 					resultado = "Trio";
 		}
 		return resultado;
-	}
-
-	public PaloDeCarta obtenerPaloDeCarta(Carta carta) {
-		return carta.getPalo();
-	}
-
-	public int obtenerValorDeCarta(Carta carta) {
-		return carta.getValor();
 	}
 	
 	public boolean esPoker(Jugada jugada) {

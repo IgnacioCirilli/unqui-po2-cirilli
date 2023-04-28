@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import static org.mockito.Mockito.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -50,110 +53,139 @@ class PokerStatusTest {
 	@Test
 	public void verificacionCuandoHayPoquer1() {
 		// Exercise y Verify
-		when(carta1.getValor()).thenReturn(1);
-		when(carta2.getValor()).thenReturn(1);
-		when(carta3.getValor()).thenReturn(1);
-		when(carta4.getValor()).thenReturn(1);
-		when(carta5.getValor()).thenReturn(2);
+		when(carta1.tieneMismoValorQue(carta1)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta2)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta3)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta4)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta5)).thenReturn(false);
 		
-		when(jugada1.getCarta(1)).thenReturn(carta1);
-		when(jugada1.getCarta(2)).thenReturn(carta2);
-		when(jugada1.getCarta(3)).thenReturn(carta3);
-		when(jugada1.getCarta(4)).thenReturn(carta4);
-		when(jugada1.getCarta(5)).thenReturn(carta5);
+		List<Carta> cartasDeJugada         = Arrays.asList(carta1, carta2, carta3, carta4, carta5);
+		List<Carta> primerasCartasDeJugada = Arrays.asList(carta1, carta2);
+		
+		when(jugada1.getCartas()).thenReturn(cartasDeJugada);
+		when(jugada1.obtenerPrimeras(2)).thenReturn(primerasCartasDeJugada);
 		
 		assertEquals("Poker", pokerStatus.verificar(jugada1));
 	}
 	
-//	@Test
-//	public void verificacionCuandoHayPoquer2() {
-//		// Exercise y Verify
-//		when(carta1.getValor()).thenReturn(2);
-//		when(carta2.getValor()).thenReturn(1);
-//		when(carta3.getValor()).thenReturn(1);
-//		when(carta4.getValor()).thenReturn(1);
-//		when(carta5.getValor()).thenReturn(1);
-//		
-//		when(carta1.getPalo()).thenReturn(PaloDeCarta.Picas);
-//		when(carta2.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		when(carta3.getPalo()).thenReturn(PaloDeCarta.Corazones);
-//		when(carta4.getPalo()).thenReturn(PaloDeCarta.Picas);
-//		when(carta5.getPalo()).thenReturn(PaloDeCarta.Trebol);
-//		
-//		assertEquals(pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5), "Poker");
-//	}
-//	
-//	@Test
-//	public void verificacionCuandoNoHayNada() {
-//		// Exercise y Verify
-//		when(carta1.getValor()).thenReturn(1);
-//		when(carta2.getValor()).thenReturn(2);
-//		when(carta3.getValor()).thenReturn(11);
-//		when(carta4.getValor()).thenReturn(13);
-//		when(carta5.getValor()).thenReturn(1);
-//		
-//		when(carta1.getPalo()).thenReturn(PaloDeCarta.Corazones);
-//		when(carta2.getPalo()).thenReturn(PaloDeCarta.Picas);
-//		when(carta3.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		when(carta4.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		when(carta5.getPalo()).thenReturn(PaloDeCarta.Picas);
-//		
-//		assertEquals(pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5), "Nada");
-//	}
-//	
-//	@Test
-//	public void verificacionCuandoHayColor() {
-//		// Exercise y Verify
-//		when(carta1.getValor()).thenReturn(1);
-//		when(carta2.getValor()).thenReturn(13);
-//		when(carta3.getValor()).thenReturn(12);
-//		when(carta4.getValor()).thenReturn(11);
-//		when(carta5.getValor()).thenReturn(10);
-//		
-//		when(carta1.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		when(carta2.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		when(carta3.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		when(carta4.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		when(carta5.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		
-//		assertEquals(pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5), "Color");
-//	}
-//	
-//	@Test
-//	public void verificacionCuandoHayTrio1() {
-//		// Exercise y Verify
-//		when(carta1.getValor()).thenReturn(1);
-//		when(carta2.getValor()).thenReturn(1);
-//		when(carta3.getValor()).thenReturn(1);
-//		when(carta4.getValor()).thenReturn(11);
-//		when(carta5.getValor()).thenReturn(10);
-//		
-//		when(carta1.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		when(carta2.getPalo()).thenReturn(PaloDeCarta.Picas);
-//		when(carta3.getPalo()).thenReturn(PaloDeCarta.Corazones);
-//		when(carta4.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		when(carta5.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		
-//		assertEquals(pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5), "Trio");
-//	}
-//	
-//	@Test
-//	public void verificacionCuandoHayTrio2() {
-//		// Exercise y Verify
-//		when(carta1.getValor()).thenReturn(10);
-//		when(carta2.getValor()).thenReturn(1);
-//		when(carta3.getValor()).thenReturn(1);
-//		when(carta4.getValor()).thenReturn(1);
-//		when(carta5.getValor()).thenReturn(2);
-//		
-//		when(carta1.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		when(carta2.getPalo()).thenReturn(PaloDeCarta.Diamante);
-//		when(carta3.getPalo()).thenReturn(PaloDeCarta.Corazones);
-//		when(carta4.getPalo()).thenReturn(PaloDeCarta.Picas);
-//		when(carta5.getPalo()).thenReturn(PaloDeCarta.Picas);
-//		
-//		assertEquals(pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5), "Trio");
-//	}
+	@Test
+	public void verificacionCuandoHayPoquer2() {
+		// Exercise y Verify
+		when(carta1.tieneMismoValorQue(carta1)).thenReturn(false);
+		when(carta1.tieneMismoValorQue(carta2)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta3)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta4)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta5)).thenReturn(true);
+		
+		List<Carta> cartasDeJugada         = Arrays.asList(carta1, carta2, carta3, carta4, carta5);
+		List<Carta> primerasCartasDeJugada = Arrays.asList(carta1, carta2);
+		
+		when(jugada1.getCartas()).thenReturn(cartasDeJugada);
+		when(jugada1.obtenerPrimeras(2)).thenReturn(primerasCartasDeJugada);
+		
+		assertEquals("Poker", pokerStatus.verificar(jugada1));
+	}
+	
+	@Test
+	public void verificacionCuandoNoHayNada() {
+		// Exercise y Verify
+		when(carta1.getValor()).thenReturn(ValorDeCarta.A);
+		when(carta2.getValor()).thenReturn(ValorDeCarta.DOS);
+		when(carta3.getValor()).thenReturn(ValorDeCarta.J);
+		when(carta4.getValor()).thenReturn(ValorDeCarta.K);
+		when(carta5.getValor()).thenReturn(ValorDeCarta.A);
+		
+		when(carta1.getPalo()).thenReturn(PaloDeCarta.CORAZONES);
+		when(carta2.getPalo()).thenReturn(PaloDeCarta.PICAS);
+		when(carta3.getPalo()).thenReturn(PaloDeCarta.DIAMANTE);
+		when(carta4.getPalo()).thenReturn(PaloDeCarta.DIAMANTE);
+		when(carta5.getPalo()).thenReturn(PaloDeCarta.TREBOL);
+		
+		List<Carta> cartasDeJugada         = Arrays.asList(carta1, carta2, carta3, carta4, carta5);
+		List<Carta> primerasCartasDeJugada = Arrays.asList(carta1, carta2);
+		
+		when(jugada1.getCartas()).thenReturn(cartasDeJugada);
+		when(jugada1.obtenerPrimeras(2)).thenReturn(primerasCartasDeJugada);
+		
+		assertEquals(pokerStatus.verificar(jugada1), "Nada");
+	}
+	
+	@Test
+	public void verificacionCuandoHayColor() {
+		// Exercise y Verify
+		when(carta1.getPalo()).thenReturn(PaloDeCarta.DIAMANTE);
+		when(carta2.getPalo()).thenReturn(PaloDeCarta.DIAMANTE);
+		when(carta3.getPalo()).thenReturn(PaloDeCarta.DIAMANTE);
+		when(carta4.getPalo()).thenReturn(PaloDeCarta.DIAMANTE);
+		when(carta5.getPalo()).thenReturn(PaloDeCarta.DIAMANTE);
+		
+		when(carta1.tieneMismoPalo(carta1)).thenReturn(true);
+		when(carta1.tieneMismoPalo(carta2)).thenReturn(true);
+		when(carta1.tieneMismoPalo(carta3)).thenReturn(true);
+		when(carta1.tieneMismoPalo(carta4)).thenReturn(true);
+		when(carta1.tieneMismoPalo(carta5)).thenReturn(true);
+		
+		List<Carta> cartasDeJugada = Arrays.asList(carta1, carta2, carta3, carta4, carta5);
+		
+		when(jugada1.getCartas()).thenReturn(cartasDeJugada);
+		when(jugada1.getCarta(1)).thenReturn(carta1);
+		
+		assertEquals("Color", pokerStatus.verificar(jugada1));
+	}
+	
+	@Test
+	public void verificacionCuandoHayTrio1() {
+		// Exercise y Verify		
+		when(carta1.tieneMismoValorQue(carta1)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta2)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta3)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta4)).thenReturn(false);
+		when(carta1.tieneMismoValorQue(carta5)).thenReturn(false);
+		
+		List<Carta> cartasDeJugada         = Arrays.asList(carta1, carta2, carta3, carta4, carta5);
+		List<Carta> primerasCartasDeJugada = Arrays.asList(carta1, carta2, carta3);
+		
+		when(jugada1.getCartas()).thenReturn(cartasDeJugada);
+		when(jugada1.obtenerPrimeras(3)).thenReturn(primerasCartasDeJugada);
+		
+		assertEquals("Trio", pokerStatus.verificar(jugada1));
+	}
+	
+	@Test
+	public void verificacionCuandoHayTrio2() {
+		// Exercise y Verify
+		when(carta1.tieneMismoValorQue(carta1)).thenReturn(false);
+		when(carta1.tieneMismoValorQue(carta2)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta3)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta4)).thenReturn(false);
+		when(carta1.tieneMismoValorQue(carta5)).thenReturn(true);
+		
+		List<Carta> cartasDeJugada         = Arrays.asList(carta1, carta2, carta3, carta4, carta5);
+		List<Carta> primerasCartasDeJugada = Arrays.asList(carta1, carta2, carta3);
+		
+		when(jugada1.getCartas()).thenReturn(cartasDeJugada);
+		when(jugada1.obtenerPrimeras(3)).thenReturn(primerasCartasDeJugada);
+		
+		assertEquals("Trio", pokerStatus.verificar(jugada1));
+	}
+	
+	@Test
+	public void verificacionCuandoHayTrio3() {
+		// Exercise y Verify
+		when(carta1.tieneMismoValorQue(carta1)).thenReturn(false);
+		when(carta1.tieneMismoValorQue(carta2)).thenReturn(false);
+		when(carta1.tieneMismoValorQue(carta3)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta4)).thenReturn(true);
+		when(carta1.tieneMismoValorQue(carta5)).thenReturn(true);
+		
+		List<Carta> cartasDeJugada         = Arrays.asList(carta1, carta2, carta3, carta4, carta5);
+		List<Carta> primerasCartasDeJugada = Arrays.asList(carta1, carta2, carta3);
+		
+		when(jugada1.getCartas()).thenReturn(cartasDeJugada);
+		when(jugada1.obtenerPrimeras(3)).thenReturn(primerasCartasDeJugada);
+		
+		assertEquals("Trio", pokerStatus.verificar(jugada1));
+	}
 	
 //	@Test
 //	void verificacionDeGanadorDeUnaJugada() {

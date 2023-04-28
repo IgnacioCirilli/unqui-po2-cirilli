@@ -3,15 +3,15 @@ package ar.edu.unq.po2.tp7;
 
 public class Carta {
 	
-	private int valor;
+	private ValorDeCarta valor;
 	private PaloDeCarta palo;
 	
-	public Carta(int valor, PaloDeCarta palo) {
+	public Carta(ValorDeCarta valor, PaloDeCarta palo) {
 		this.setPalo(palo);
 		this.setValor(valor);
 	}
 
-	public int getValor() {
+	public ValorDeCarta getValor() {
 		return valor;
 	}
 
@@ -19,17 +19,20 @@ public class Carta {
 		return palo;
 	}
 
-	private void setValor(int valor) {
+	private void setValor(ValorDeCarta valor) {
 		this.valor = valor;
 	}
 
 	private void setPalo(PaloDeCarta palo) {
 		this.palo = palo;
 	}
+	
+	private int obtenerValorDeCarta() {
+		return this.getValor().getValorNumerico();
+	}
 
 	public boolean esMayorQue(Carta carta) { 
-		return (this.getValor() == 1 && carta.getValor() != 1) 
-				|| this.getValor() > carta.getValor();
+		return this.obtenerValorDeCarta() > carta.obtenerValorDeCarta();
 	}
 
 	public boolean tieneMismoPalo(Carta carta) {

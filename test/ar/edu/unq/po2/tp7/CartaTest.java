@@ -13,20 +13,21 @@ class CartaTest {
 
 	@BeforeEach
 	public void setUp() {
-		cartaAD = new Carta(1, PaloDeCarta.Diamante);
-		carta5P = new Carta(5, PaloDeCarta.Picas);
-		cartaAP = new Carta(1, PaloDeCarta.Picas);
+		cartaAD = new Carta(ValorDeCarta.A, PaloDeCarta.DIAMANTE);
+		carta5P = new Carta(ValorDeCarta.CINCO, PaloDeCarta.PICAS);
+		cartaAP = new Carta(ValorDeCarta.A, PaloDeCarta.PICAS);
 	}
 
 	@Test
 	public void verificacionInicializacionDeCarta() {
-		assertEquals(cartaAD.getPalo(), PaloDeCarta.Diamante);
-		assertEquals(cartaAD.getValor(), 1);
+		assertEquals(cartaAD.getPalo(), PaloDeCarta.DIAMANTE);
+		assertEquals(cartaAD.getValor(), ValorDeCarta.A);
+
 	}
 	
 	@Test
 	public void verificacionCartaNoEsMayorAOtra1() {
-		assertTrue(carta5P.esMayorQue(cartaAD));
+		assertFalse(carta5P.esMayorQue(cartaAD));
 	}
 	
 	@Test

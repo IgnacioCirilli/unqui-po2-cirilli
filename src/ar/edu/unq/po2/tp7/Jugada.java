@@ -1,7 +1,6 @@
 package ar.edu.unq.po2.tp7;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class Jugada {
