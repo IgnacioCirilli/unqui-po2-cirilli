@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp3;
+package ar.edu.unq.po2.tp9.ej3;
 
 public class Point {
 	
@@ -43,10 +43,10 @@ public class Point {
 		this.setXY(x, y);
 	}
 	
-	public Point addsPoints(Point punto) {
+	public void addsPoints(Point punto) {
 		int newX = this.getX() + punto.getX();
 		int newY = this.getY() + punto.getY();
-		return new Point(newX, newY);
+		this.setXY(newX, newY);
 	}
 
 }
