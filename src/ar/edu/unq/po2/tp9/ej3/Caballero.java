@@ -11,6 +11,4 @@ public class Caballero extends Personaje {
 		this.getUbicacion().movePointTo(punto.getX(), punto.getY());
 	}
 	
-	
-
 }
