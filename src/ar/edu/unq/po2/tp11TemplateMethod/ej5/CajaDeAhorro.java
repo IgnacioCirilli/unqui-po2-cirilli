@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp11TemplateMethod;
+package ar.edu.unq.po2.tp11TemplateMethod.ej5;
 
 public class CajaDeAhorro extends CuentaBancaria {	//ConcreteClass
 	

@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp11TemplateMethod;
+package ar.edu.unq.po2.tp11TemplateMethod.ej5;
 
 import java.util.ArrayList;
 import java.util.List;

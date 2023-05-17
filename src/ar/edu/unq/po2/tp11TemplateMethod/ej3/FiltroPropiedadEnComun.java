@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp11TM;
+package ar.edu.unq.po2.tp11TemplateMethod.ej3;
 
 import java.util.List;
 

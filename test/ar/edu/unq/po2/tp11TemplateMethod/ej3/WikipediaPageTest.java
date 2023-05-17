@@ -1,9 +1,12 @@
-package ar.edu.unq.po2.tp11TM;
+package ar.edu.unq.po2.tp11TemplateMethod.ej3;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ar.edu.unq.po2.tp11TemplateMethod.ej3.IWikipediaPage;
+import ar.edu.unq.po2.tp11TemplateMethod.ej3.WikipediaPage;
 
 class WikipediaPageTest {
 
