@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.tp6Solid.ej2;
 
-
 public abstract class SolicitudDeCredito {
 	
 	private Cliente clienteSolicitante;
@@ -14,7 +13,6 @@ public abstract class SolicitudDeCredito {
 		this.setPlazoEnMeses(plazoEnMeses);
 		this.setEsAceptada(false);
 	}
-	
 	
 	public Cliente getClienteSolicitante() {
 		return clienteSolicitante;

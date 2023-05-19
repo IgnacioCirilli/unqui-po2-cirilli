@@ -20,5 +20,4 @@ class PropiedadTest {
 		assertEquals(this.propiedad.getValorFiscal(), 120000f);
 		assertEquals(this.propiedad.getDireccion(), "Avenida SiempreViva 2142");
 	}
-
 }

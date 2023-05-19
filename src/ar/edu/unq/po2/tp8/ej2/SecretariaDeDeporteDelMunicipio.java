@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -57,22 +58,17 @@ public class SecretariaDeDeporteDelMunicipio {
 		
 	}
 
-	public Map<Deporte, ActividadSemanal> agruparPorActividadPorMenorCosto() {
-		return this.obtenerDeportesSemanales()
+	public Map<Deporte, Optional<ActividadSemanal>> agruparPorActividadPorMenorCosto() {
+		return this.getActividadesSemanales()
 				   .stream()
-				   .collect(Collectors.groupingBy(this.actividadDeMenorCostoDe(d)));
-	}
-	
-	private List<Deporte> obtenerDeportesSemanales() {
-		return this.getActividadesSemanales().stream().map(as -> as.getDeporte()).toList();
+				   .collect(Collectors.groupingBy(
+						   		ActividadSemanal::getDeporte, 
+						   (Collectors.minBy(Comparator.comparing(
+								ActividadSemanal::obtenerCosto)))));
 	}
 
 	@Override
 	public String toString() {
 		return "SecretariaDeDeporteDelMunicipio [actividadesSemanales=" + actividadesSemanales.toString() + "]";
 	}
-
-	
-	
-
 }

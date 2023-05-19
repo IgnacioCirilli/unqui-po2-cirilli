@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.tp6Solid.ej2;
 
-
 public class Propiedad {
 	
 	private String descripcion;

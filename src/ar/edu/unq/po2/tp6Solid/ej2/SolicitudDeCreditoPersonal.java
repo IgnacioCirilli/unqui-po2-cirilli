@@ -1,7 +1,6 @@
 package ar.edu.unq.po2.tp6Solid.ej2;
 
-
-public class SolicitudDeCreditoPersonal extends SolicitudDeCredito{
+public class SolicitudDeCreditoPersonal extends SolicitudDeCredito {
 
 	public SolicitudDeCreditoPersonal(Cliente clienteSolicitante, float montoSolicitado, int plazoEnMeses) {
 		super(clienteSolicitante, montoSolicitado, plazoEnMeses);
@@ -33,5 +32,4 @@ public class SolicitudDeCreditoPersonal extends SolicitudDeCredito{
 	public float umbralMinimoDeIngresoAnual() {
 		return 15000f;
 	}
-
 }

@@ -8,11 +8,13 @@ class BancoTest {
 	
 	private Banco banco;
 	private Cliente cliente1;
+	private SolicitudDeCreditoPersonal solicitudDeCredito1;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		this.banco    = new Banco();
-		this.cliente1 = new Cliente(banco, "Guido", "Ventoso", "Av. SiempreViva 2142", 62, 5000f); 
+		this.cliente1 = new Cliente("Guido", "Ventoso", "Av. SiempreViva 2142", 62, 5000f); 
+		this.solicitudDeCredito1 = new SolicitudDeCreditoPersonal(cliente1, 15000f, 36);
 	}
 
 	@Test
@@ -27,4 +29,9 @@ class BancoTest {
 		assertEquals(this.banco.getClientes().size(), 1);
 	}
 	
+	@Test
+	void verificacionDeCuandoUnBancoAgregaUnaSolicitudDeCredito() {
+		this.banco.agregarSolicitudDeCredito(solicitudDeCredito1);
+		assertEquals(this.banco.getSolicitudesDeCreditos().size(), 1);
+	}
 }

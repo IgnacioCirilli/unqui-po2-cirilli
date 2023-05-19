@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.tp6Solid.ej2;
 
-public class SolicitudDeCreditoHipotecario extends SolicitudDeCredito{
+public class SolicitudDeCreditoHipotecario extends SolicitudDeCredito {
 
 	private Propiedad propiedadDeGarantia;
 	
