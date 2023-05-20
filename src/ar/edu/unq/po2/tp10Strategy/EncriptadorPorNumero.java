@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp10State_Strategy;
+package ar.edu.unq.po2.tp10Strategy;
 
 public class EncriptadorPorNumero implements IEncriptadorNaive {
 

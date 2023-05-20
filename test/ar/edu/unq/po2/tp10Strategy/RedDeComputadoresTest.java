@@ -1,10 +1,15 @@
-package ar.edu.unq.po2.tp10State_Strategy;
+package ar.edu.unq.po2.tp10Strategy;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ar.edu.unq.po2.tp10Strategy.EncriptadorPorNumero;
+import ar.edu.unq.po2.tp10Strategy.EncriptadorPorOrden;
+import ar.edu.unq.po2.tp10Strategy.EncriptadorPorVocal;
+import ar.edu.unq.po2.tp10Strategy.RedDeComputadores;
 
 class RedDeComputadoresTest {
 	

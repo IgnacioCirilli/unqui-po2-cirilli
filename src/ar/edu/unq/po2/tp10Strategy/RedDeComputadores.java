@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp10State_Strategy;
+package ar.edu.unq.po2.tp10Strategy;
 
 public class RedDeComputadores {
 	
@@ -8,8 +8,8 @@ public class RedDeComputadores {
 		return strategy;
 	}
 
-	public void setStrategy(IEncriptadorNaive strategy) {
-		this.strategy = strategy;
+	public void setStrategy(IEncriptadorNaive encriptadorNaive) {
+		this.strategy = encriptadorNaive;
 	}
 	
 	public String encriptarMensaje(String mensaje) {

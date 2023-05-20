@@ -1,9 +1,11 @@
-package ar.edu.unq.po2.tp10State_Strategy;
+package ar.edu.unq.po2.tp10Strategy;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ar.edu.unq.po2.tp10Strategy.EncriptadorPorOrden;
 
 class EncriptadorPorOrdenTest {
 	
