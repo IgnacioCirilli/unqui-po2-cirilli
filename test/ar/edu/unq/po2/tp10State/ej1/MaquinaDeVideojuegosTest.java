@@ -48,7 +48,6 @@ class MaquinaDeVideojuegosTest {
 		this.maquina.agregarFicha();
 		
 		this.maquina.presionarBotonDeInicio();
-		this.maquina.presionarBotonDeInicio();
 		
 		assertEquals(modoDeJuegoEsperado, this.maquina.presionarBotonDeInicio());
 		assertEquals(2, this.maquina.getFichas());
